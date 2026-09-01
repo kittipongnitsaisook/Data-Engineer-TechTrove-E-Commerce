@@ -1,0 +1,11 @@
+step,issue_type,impacted_rows,details
+Combine Orders,Initial Concatenation,0,Total raw orders: 752
+Orders Deduplication,Duplicate order_id,2,Retained latest order occurrence
+Orders Validation,Invalid quantity/unit_price/discount,4,Filtered out non-positive quantity or invalid discount
+Customers Cleaning,Duplicate customer_id,3,Standardized province/email and retained latest customer profile
+Products Cleaning,Duplicate product_id,0,Retained unique products in Master Catalog
+Payments Cleaning,Duplicate order_id payment events,1,Retained latest payment attempt per order
+Integrity Check,Unmatched customer_id in CRM Master,22,Orders with customer_id not found in Master CRM
+Integrity Check,Unmatched product_id in Product Master,2,Orders with product_id not found in Master Catalog
+Integrity Check,Unmatched order_id in Payments,0,Orders without payment records
+Business Rule Validation,Payment status NOT PAID (FAILED/REFUNDED),62,Excluded non-successful transactions from net sales
